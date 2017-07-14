@@ -41,7 +41,7 @@ You'll have to put the Google Wifi into developer mode:
 7. Wait until device restarts and starts blinking purple again
 8. Plug in USB stick
 9. Hit bubble switch again
-10. Wait about five minutes until device pulsing purple (device shows no lights while flashing)
+10. Wait about five minutes until device pulsing purple (device shows no lights while updating from USB)
 
 Once installed you can then:
 
