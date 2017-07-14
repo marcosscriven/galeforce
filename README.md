@@ -110,3 +110,15 @@ passwd: password updated successfully
 I tried - it's fairly easy to do and [well documented](http://www.chromium.org/chromium-os/developer-guide#TOC-Select-a-board). 
 However, with the Google Wifi (codename ```gale```), you'll find the [board overlays](http://www.chromium.org/chromium-os/developer-guide#TOC-Select-a-board) are not there. 
 This means much of the config and blobs are closed source and proprietary.
+
+## Thanks
+
+Thanks to these kind folk who helped me out on the [Chromium OS dev](https://groups.google.com/a/chromium.org/forum/?hl=en#!forum/chromium-os-dev) Google Group:
+
+Mike Frysinger	
+Bill Richardson	
+Bernie Thompson	
+Julius Werner
+
+[Patching images](https://groups.google.com/a/chromium.org/forum/?hl=en#!topic/chromium-os-dev/nggdayKYTTE)
+[Auto updates](https://groups.google.com/a/chromium.org/forum/?hl=en#!topic/chromium-os-dev/uLbB6t0BQPQ)
