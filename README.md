@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/marcosscriven/galeforce.svg?branch=master)](https://travis-ci.org/marcosscriven/galeforce)
 
-GaleForce is a minimal patch to the standard Google Wifi image, enabling ssh access.
+GaleForce is a project to customise the Google Wifi router, including enabling ssh access.
 
 ## Pre-built images
 
-GaleForce uses Travis and produces tagged binaries available from [here](https://github.com/marcosscriven/galeforce/releases)
+GaleForce uses Travis and produces tagged binaries available from [here](https://github.com/marcosscriven/galeforce/releases).
 
 ## How to build an image
 
