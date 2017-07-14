@@ -30,6 +30,8 @@ sudo dd if=output/gale.bin of=/dev/<usbdevice> bs=1m
 
 You'll have to put the Google Wifi into developer mode:
 
+![Alt text](http://i.imgur.com/iCPe0WO.jpg "Google WIfi")
+
 1. Unscrew the single screw on the bottom
 2. Insert a very slim blade or screwdriver to ease out the base cover
 3. Insert a USB-C adapter with [Power Delivery](https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Dcomputers&field-keywords=usb+c+adapter+power+delivery&rh=n%3A340831031%2Ck%3Ausb+c+adapter+power+delivery)
