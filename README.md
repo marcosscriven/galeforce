@@ -7,7 +7,7 @@ GaleForce is a minimal patch to the standard Google Wifi image, enabling ssh acc
 If you're on a reasonably modern Linux system, you can simply run:
 
 ```
-./patch-image.sh gale
+./build.sh gale
 ```
 
 If however you're on Windows or Mac, you'll need to use Vagrant (unfortunately
@@ -17,7 +17,7 @@ Docker for these systems don't have the necessary functions in their xhyve kerne
 vagrant up
 vagrant ssh
 cd /vagrant
-./patch-image.sh gale
+./build.sh gale
 ```
 
 Once completed (by either method), you can copy this image to a USB stick:

@@ -9,6 +9,6 @@ Vagrant.configure(2) do |config|
   end
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
-    sudo apt-get install -y git-core curl jq unzip vboot-kernel-utils binutils
+    sudo apt-get install -y git-core curl jq unzip vboot-kernel-utils binutils kpartx
   SHELL
 end

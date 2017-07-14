@@ -124,7 +124,7 @@ function getLoopDeviceForPartition() {
 
   img=$BUILD_DIR/$BOARD.bin
   partitionNumber=$(parted $img unit B print | grep $partitionName | tr -s ' ' | cut -d ' ' -f2)
-  echo "/dev/loop0p$partitionNumber"
+  echo "/dev/mapper/loop0p$partitionNumber"
 }
 
 function enableReadWrite() {
@@ -236,7 +236,7 @@ function createPatchImage() {
   cp "$DOWNLOADS_DIR/$BOARD.bin" $BUILD_DIR/$BOARD.bin
 
   echo "Mapping partitions to loop devices"
-  sudo losetup --show -f -P $BUILD_DIR/$BOARD.bin
+  sudo kpartx -a $BUILD_DIR/$BOARD.bin
 
   # This is the main root (there's also ROOT-B)
   patchRoot ROOT-A
@@ -248,7 +248,7 @@ function createPatchImage() {
   patchKernel KERN-B
 
   echo "Unmapping loop devices"
-  sudo losetup -D $BUILD_DIR/$BOARD.bin
+  sudo kpartx -d $BUILD_DIR/$BOARD.bin
 
   # Finally copy to output
   cp $BUILD_DIR/$BOARD.bin $OUTPUT_DIR
