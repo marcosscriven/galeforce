@@ -1,6 +1,6 @@
-# Galeforce
+# GaleForce
 
-Galeforce is a minimal patch to the standard Google Wifi image, enabling ssh access.
+GaleForce is a minimal patch to the standard Google Wifi image, enabling ssh access.
 
 ## How to build image
 
