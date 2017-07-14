@@ -1,2 +1,3 @@
-# galeforce
-A little project to customise Google wifi routers
+# Patch for Google wifi devices
+
+Run ./patch-image.sh [arkham|gale|whirlwind]

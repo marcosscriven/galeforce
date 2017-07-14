@@ -1,0 +1,2 @@
+Dropbear on first run will generate an ECDSA key, which we neeed to keep. We therefore symlink to the galefore dir so
+this persists between updates
