@@ -96,7 +96,7 @@ Enter the new value, or press ENTER for the default
 	Login Shell [/bin/dash]: /bin/bash
 ```
 
-# Change the password (really)
+## Change the password (really)
 
 ```
 localhost ~ # passwd
