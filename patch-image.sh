@@ -4,7 +4,7 @@
 # https://chromium.googlesource.com/chromiumos/platform/vboot_reference/+/master/scripts/image_signing/make_dev_ssd.sh#303
 # https://chromium.googlesource.com/chromiumos/platform/vboot_reference/+/master/scripts/image_signing/common_minimal.sh#279
 #
-# Set the following on how kernel verification is removed:
+# See the following on how kernel verification is removed:
 # https://chromium.googlesource.com/chromiumos/platform/vboot_reference/+/master/scripts/image_signing/make_dev_ssd.sh#63
 
 IMAGE_METADATA_URL="https://dl.google.com/dl/edgedl/chromeos/recovery/onhub_recovery.json"
