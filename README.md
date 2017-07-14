@@ -35,7 +35,7 @@ You'll have to put the Google Wifi into developer mode:
 1. Unscrew the single screw on the bottom
 2. Insert a very slim blade or screwdriver to ease out the base cover
 3. Insert a USB-C adapter with [Power Delivery](https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Dcomputers&field-keywords=usb+c+adapter+power+delivery&rh=n%3A340831031%2Ck%3Ausb+c+adapter+power+delivery)
-4. Press reset button on the back until light blinks orange (16 seconds)
+4. Press reset button on the back until light blinks orange ([exactly 16 seconds](https://chromium.googlesource.com/chromiumos/third_party/coreboot/+/firmware-gale-8281.B/src/mainboard/google/gale/chromeos.c#118))
 5. Once blinking orange, hit the tiny bubble switch (SW7 on the board)
 6. Device will start blinking purple and restart
 7. Wait until device restarts and starts blinking purple again
@@ -82,6 +82,18 @@ I've also put busybox on there:
 ```
 localhost ~ # ln -s /bin/busybox /bin/vi
 localhost ~ # vi
+```
+
+## Shell
+
+The default shell seems to be dash, but you can change it easily enough. I prefer bash as it has tab completion and 
+history navigation:
+
+```
+root@localhost $ chsh
+Changing the login shell for root
+Enter the new value, or press ENTER for the default
+	Login Shell [/bin/dash]: /bin/bash
 ```
 
 # Change the password (really)
