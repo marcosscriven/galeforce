@@ -14,16 +14,16 @@ If however you're on Windows or Mac, you'll need to use Vagrant (unfortunately
 Docker for these systems don't have the necessary functions in their xhyve kernels to map loop devices properly):
 
 ```
-    vagrant up
-    vagrant ssh
-    cd /vagrant
-    ./patch-image.sh gale
+vagrant up
+vagrant ssh
+cd /vagrant
+./patch-image.sh gale
 ```
 
 Once completed (by either method), you can copy this image to a USB stick:
 
 ```
-    sudo dd if=output/gale.bin of=/dev/<usbdevice> bs=1m
+sudo dd if=output/gale.bin of=/dev/<usbdevice> bs=1m
 ```
 
 ## How to apply image
