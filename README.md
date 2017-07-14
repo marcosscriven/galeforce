@@ -109,7 +109,7 @@ passwd: password updated successfully
 
 I tried - it's fairly easy to do and [well documented](http://www.chromium.org/chromium-os/developer-guide#TOC-Select-a-board). 
 However, with the Google Wifi (codename ```gale```), you'll find the [board overlays](http://www.chromium.org/chromium-os/developer-guide#TOC-Select-a-board) are not there. 
-This means much of the config and blobs are closed source and proprietary.
+This means much of the config and blobs are [closed source](https://www.chromium.org/chromium-os/how-tos-and-troubleshooting/chromiumos-board-porting-guide/private-boards) and proprietary.
 
 ## Thanks
 
