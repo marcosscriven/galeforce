@@ -14,10 +14,7 @@ If however you're on Windows or Mac, you'll need to use Vagrant (unfortunately
 Docker for these systems don't have the necessary functions in their xhyve kernels to map loop devices properly):
 
 ```
-vagrant up
-vagrant ssh
-cd /vagrant
-./build.sh gale
+vagrant ssh -c 'cd /vagrant; ./build.sh gale'
 ```
 
 Once completed (by either method), you can copy this image to a USB stick:
