@@ -4,3 +4,4 @@ dist: trusty
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y git-core curl jq unzip vboot-kernel-utils binutils
+script: ./patch-image.sh gale
