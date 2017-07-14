@@ -1,5 +1,7 @@
 # GaleForce
 
+[![Build Status](https://travis-ci.org/marcosscriven/galeforce.svg?branch=master)](https://travis-ci.org/marcosscriven/galeforce)
+
 GaleForce is a minimal patch to the standard Google Wifi image, enabling ssh access.
 
 ## How to build image
