@@ -4,6 +4,10 @@
 
 GaleForce is a minimal patch to the standard Google Wifi image, enabling ssh access.
 
+## Pre-built images
+
+GaleForce uses Travis and produces tagged binaries available from [here](https://github.com/marcosscriven/galeforce/releases)
+
 ## How to build image
 
 If you're on a reasonably modern Linux system, you can simply run:
