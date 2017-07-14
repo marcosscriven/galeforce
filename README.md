@@ -8,7 +8,7 @@ GaleForce is a minimal patch to the standard Google Wifi image, enabling ssh acc
 
 GaleForce uses Travis and produces tagged binaries available from [here](https://github.com/marcosscriven/galeforce/releases)
 
-## How to build image
+## How to build an image
 
 If you're on a reasonably modern Linux system, you can simply run:
 
@@ -16,7 +16,7 @@ If you're on a reasonably modern Linux system, you can simply run:
 ./build.sh gale
 ```
 
-If however you're on Windows or Mac, you'll need to use Vagrant (unfortunately
+If however you're on Windows or macOS, you'll need to use Vagrant (unfortunately
 Docker for these systems don't have the necessary functions in their xhyve kernels to map loop devices properly):
 
 ```
@@ -30,7 +30,7 @@ Once completed (by either method), you can copy this image to a USB stick:
 sudo dd if=output/gale.bin of=/dev/<usbdevice> bs=1m
 ```
 
-## How to apply image
+## How to apply an image
 
 You'll have to put the Google Wifi into developer mode:
 
