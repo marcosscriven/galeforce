@@ -104,3 +104,9 @@ Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
 ```
+
+## Why not just build Chromium OS from source
+
+I tried - it's fairly easy to do and [well documented](http://www.chromium.org/chromium-os/developer-guide#TOC-Select-a-board). 
+However, with the Google Wifi (codename ```gale```), you'll find the [board overlays](http://www.chromium.org/chromium-os/developer-guide#TOC-Select-a-board) are not there. 
+This means much of the config and blobs are closed source and proprietary.
