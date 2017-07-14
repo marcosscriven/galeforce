@@ -3,4 +3,4 @@
 .vagrant/
 build/
 output/
-ubuntu.*.log
+ubuntu*.log
