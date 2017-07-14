@@ -35,8 +35,8 @@ You'll have to put the Google Wifi into developer mode:
 1. Unscrew the single screw on the bottom
 2. Insert a very slim blade or screwdriver to ease out the base cover
 3. Insert a USB-C adapter with [Power Delivery](https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Dcomputers&field-keywords=usb+c+adapter+power+delivery&rh=n%3A340831031%2Ck%3Ausb+c+adapter+power+delivery)
-4. Press [reset button](https://chromium.googlesource.com/chromiumos/third_party/coreboot/+/firmware-gale-8281.B/src/mainboard/google/gale/chromeos.c#78) on the back until light blinks orange ([exactly 16 seconds](https://chromium.googlesource.com/chromiumos/third_party/coreboot/+/firmware-gale-8281.B/src/mainboard/google/gale/chromeos.c#118))
-5. Once blinking orange, hit the tiny bubble switch (SW7 on the board)
+4. Press the reset button on the back until light blinks orange ([exactly 16 seconds](https://chromium.googlesource.com/chromiumos/third_party/coreboot/+/firmware-gale-8281.B/src/mainboard/google/gale/chromeos.c#118))
+5. Once blinking orange, hit the tiny [bubble switch]((https://chromium.googlesource.com/chromiumos/third_party/coreboot/+/firmware-gale-8281.B/src/mainboard/google/gale/chromeos.c#78)) (SW7 on the board - see image)
 6. Device will start blinking purple and restart
 7. Wait until device restarts and starts blinking purple again
 8. Plug in USB stick
