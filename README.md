@@ -121,4 +121,5 @@ Thanks to these kind folk who helped me out on the [Chromium OS dev](https://gro
 * Julius Werner
 
 [Patching images](https://groups.google.com/a/chromium.org/forum/?hl=en#!topic/chromium-os-dev/nggdayKYTTE)
+
 [Auto updates](https://groups.google.com/a/chromium.org/forum/?hl=en#!topic/chromium-os-dev/uLbB6t0BQPQ)
