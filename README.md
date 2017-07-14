@@ -46,3 +46,47 @@ Once install you can then:
 ```
 ssh root@192.168.86.1 (password changeme)
 ```
+
+```
+localhost ~ # uname -a
+Linux localhost 3.18.0-14565-g46be31c1033f #1 SMP PREEMPT Fri Jun 2 14:42:21 PDT 2017 armv7l ARMv7 Processor rev 5 (v7l) Qualcomm (Flattened Device Tree) GNU/Linux
+
+localhost ~ # cat /etc/lsb-release
+CHROMEOS_AUSERVER=https://tools.google.com/service/update2
+CHROMEOS_BOARD_APPID={9BC3D9F3-D113-8EA2-42D6-F2CDB8189814}
+CHROMEOS_CANARY_APPID={90F229CE-83E2-4FAF-8479-E368A34938B1}
+CHROMEOS_DEVSERVER=
+CHROMEOS_RELEASE_APPID={9BC3D9F3-D113-8EA2-42D6-F2CDB8189814}
+CHROMEOS_RELEASE_BOARD=gale-signed-mpkeys
+CHROMEOS_RELEASE_BRANCH_NUMBER=40
+CHROMEOS_RELEASE_BUILDER_PATH=gale-release/R59-9460.40.5
+CHROMEOS_RELEASE_BUILD_NUMBER=9460
+CHROMEOS_RELEASE_BUILD_TYPE=Official Build
+CHROMEOS_RELEASE_CHROME_MILESTONE=59
+CHROMEOS_RELEASE_DESCRIPTION=9460.40.5 (Official Build) stable-channel gale
+CHROMEOS_RELEASE_NAME=Chrome OS
+CHROMEOS_RELEASE_PATCH_NUMBER=5
+CHROMEOS_RELEASE_TRACK=stable-channel
+CHROMEOS_RELEASE_VERSION=9460.40.5
+DEVICETYPE=OTHER
+GOOGLE_RELEASE=9460.40.5
+HWID_OVERRIDE=GALE DOGFOOD
+```
+
+## Busybox
+
+I've also put busybox on there:
+
+```
+localhost ~ # ln -s /bin/busybox /bin/vi
+localhost ~ # vi
+```
+
+# Change the password (really)
+
+```
+localhost ~ # passwd
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
