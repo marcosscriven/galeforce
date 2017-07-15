@@ -132,9 +132,8 @@ function patchRoot() {
   mkdir -p $mountPoint/usr/local
   sudo cp -R $BUILD_DIR/galeforce $mountPoint/usr/local
 
-  # Ensure scripts executable
-  sudo chmod u+x $mountPoint/usr/local/galeforce/bin/link.sh
-  sudo chmod u+x $mountPoint/usr/local/galeforce/bin/update.sh
+  # Ensure everything in bin is executable
+  sudo chmod u+x $mountPoint/usr/local/galeforce/bin/*
 
   # Run GaleForce
   sudo $mountPoint/usr/local/galeforce/bin/link.sh $mountPoint
