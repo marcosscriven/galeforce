@@ -1,5 +1,5 @@
 #! /bin/bash
 
 echo "Building all artifacts."
-./build-galeforce.sh
-./build-image.sh
+$(dirname "$0")/build-galeforce.sh
+$(dirname "$0")/build-image.sh

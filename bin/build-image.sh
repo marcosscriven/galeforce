@@ -204,10 +204,10 @@ function unmountPartition() {
 
 function createPatchImage() {
   echo "Copying image to $BUILD_DIR dir"
-  cp "$DOWNLOADS_DIR/$BOARD.bin" $BUILD_DIR/$BOARD.bin
+  cp "$DOWNLOADS_DIR/$BOARD.bin" "$BUILD_DIR/$BOARD.bin"
 
   echo "Mapping partitions to loop devices"
-  sudo kpartx -a $BUILD_DIR/$BOARD.bin
+  sudo kpartx -a "$BUILD_DIR/$BOARD.bin"
 
   # This is the main root (there's also ROOT-B)
   patchRoot ROOT-A
@@ -218,17 +218,17 @@ function createPatchImage() {
   # This is the kernel that gets written to disk
   patchKernel KERN-B
 
-  echo "Unmapping loop devices"
-  sudo kpartx -d $BUILD_DIR/$BOARD.bin
+  echo "Un-mapping loop devices"
+  sudo kpartx -d "$BUILD_DIR/$BOARD.bin"
 
   # Finally compress and copy to output
   pushd
-  cp $BUILD_DIR/$BOARD.bin.tar.gz $OUTPUT_DIR
+  cp "$BUILD_DIR/$BOARD.bin.tar.gz" "$OUTPUT_DIR"
   popd
   echo "Patched image has been copied to $OUTPUT_DIR/$BOARD.bin.tar.gz"
 }
 
 downloadDependencies
-#createPatchImage
+createPatchImage
 
 popd
