@@ -141,7 +141,7 @@ function patchRoot() {
   # Install GaleForce
   sudo $mountPoint/usr/local/galeforce/bin/install.sh $mountPoint
 
-  find $mountPoint
+  # find $mountPoint
   unmountPartition $rootName
 }
 
