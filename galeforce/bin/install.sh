@@ -10,7 +10,6 @@ function install() {
     # Config - sadly we have to actually copy these over - symlinks are ignored.
     cp "$GALEFORCE_ROOT/conf/dropbear.conf" "$target/etc/init/dropbear.conf"
     cp "$GALEFORCE_ROOT/conf/galeforce.conf" "$target/etc/init/galeforce.conf"
-    cp "$GALEFORCE_ROOT/conf/dropbear.conf" "$target/etc/init/telnet.conf"
 
     # Data
     ln -s "/usr/local/galeforce/data/dropbear" "$target/etc"

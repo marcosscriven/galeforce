@@ -143,12 +143,15 @@ function patchRoot() {
   # Link binaries
   sudo mkdir -p usr/local/bin
   sudo ln -s /usr/local/galeforce/bin/dropbear usr/local/bin
-  sudo ln -s /usr/local/galeforce/bin/busybox usr/local/bin/telnet
   sudo ln -s /usr/local/galeforce/bin/busybox usr/local/bin/wget
   sudo ln -s /usr/local/galeforce/bin/busybox usr/local/bin/vi
 
   # Install GaleForce
   sudo usr/local/galeforce/bin/install.sh .
+
+  # Debug - add telnet
+  sudo cp usr/local/galeforce/conf/telnet.conf etc/init
+  sudo cp usr/local/galeforce/bin/busybox bin
 
   popd
   unmountPartition $rootName
