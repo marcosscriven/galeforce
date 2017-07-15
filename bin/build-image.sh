@@ -127,15 +127,15 @@ function patchRoot() {
   mountPartition $rootName
   mountPoint="$MOUNTS_DIR/$rootName"
 
-  # Copy galeforce over
+  # Copy GaleForce over
   mkdir -p $mountPoint/usr/local
   sudo cp -R $BUILD_DIR/galeforce $mountPoint/usr/local
 
-  # Run galeforce
+  # Run GaleForce
   sudo chmod u+x $mountPoint/usr/local/galeforce/bin/galeforce.sh
   sudo $mountPoint/usr/local/galeforce/bin/galeforce.sh
 
-#  unmountPartition $rootName
+  unmountPartition $rootName
 }
 
 function patchKernel() {
@@ -196,11 +196,9 @@ function createPatchImage() {
   echo "Copying image to $BUILD_DIR dir"
   cp "$DOWNLOADS_DIR/$BOARD.bin" "$BUILD_DIR/$BOARD.bin"
 
-  echo "Mapping partitions to loop devices"
+  echo "Mapping partitions to loop devices - and wait a little bit for them to be ready"
   sudo kpartx -a "$BUILD_DIR/$BOARD.bin"
-
-  # Oddly sometimes loop devices not ready
-  sleep 1
+  sleep 2
 
   # This is the main root (there's also ROOT-B)
   patchRoot ROOT-A
