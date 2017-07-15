@@ -12,7 +12,7 @@ function install() {
     cp "$GALEFORCE_ROOT/conf/galeforce.conf" "$target/etc/init/galeforce.conf"
 
     # Data
-    ln -s "/usr/local/galeforce/data/dropbear" "$target/etc"
+    ln -s "/galeforce/data/dropbear" "$target/etc"
 
     # Replace shadow file to ensure root password (TODO - be smarter here)
     rm -rf "$target/etc/shadow"

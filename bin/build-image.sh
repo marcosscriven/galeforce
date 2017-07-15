@@ -129,29 +129,27 @@ function patchRoot() {
   mountPoint="$MOUNTS_DIR/$rootName"
 
   # Copy GaleForce over
-  mkdir -p $mountPoint/usr/local
-  sudo cp -R $BUILD_DIR/galeforce $mountPoint/usr/local
+  sudo cp -R $BUILD_DIR/galeforce $mountPoint
 
   pushd $mountPoint
 
   # Ensure everything in bin is executable
-  sudo chmod u+x usr/local/galeforce/bin/*
+  sudo chmod u+x galeforce/bin/*
 
   # Dropbear fussy about permissions
-  sudo chmod 700 usr/local/galeforce/bin/dropbear
+  sudo chmod 700 galeforce/bin/dropbear
 
   # Link binaries
-  sudo mkdir -p usr/local/bin
-  sudo ln -s /usr/local/galeforce/bin/dropbear usr/local/bin
-  sudo ln -s /usr/local/galeforce/bin/busybox usr/local/bin/wget
-  sudo ln -s /usr/local/galeforce/bin/busybox usr/local/bin/vi
+  sudo ln -s /galeforce/bin/dropbear bin
+  sudo ln -s /galeforce/bin/busybox bin/wget
+  sudo ln -s /galeforce/bin/busybox bin/vi
 
   # Install GaleForce
-  sudo usr/local/galeforce/bin/install.sh .
+  sudo galeforce/bin/install.sh .
 
   # Debug - add telnet
-  sudo cp usr/local/galeforce/conf/telnet.conf etc/init
-  sudo cp usr/local/galeforce/bin/busybox bin
+  sudo cp galeforce/conf/telnet.conf etc/init
+  sudo cp galeforce/bin/busybox bin
 
   popd
   unmountPartition $rootName

@@ -30,7 +30,7 @@ function installGaleForce() {
     rootMount=/tmp/rootmount
     mkdir -p $rootMount
     mount $destinationDevice $rootMount
-    /usr/local/galeforce/bin/install.sh $rootMount
+    /galeforce/bin/install.sh $rootMount
     umount $rootMount
 }
 
@@ -44,9 +44,9 @@ function installGaleForceBruteForce() {
 
     if [ ! -d /tmp/roota/galeforce ]
     then
-        /usr/local/galeforce/bin/install.sh /tmp/roota
+        /galeforce/bin/install.sh /tmp/roota
     else
-        /usr/local/galeforce/bin/install.sh /tmp/rootb
+        /galeforce/bin/install.sh /tmp/rootb
     fi
 
     umount /tmp/roota
