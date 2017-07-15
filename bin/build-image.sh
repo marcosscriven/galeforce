@@ -132,9 +132,10 @@ function patchRoot() {
   sudo cp -R $BUILD_DIR/galeforce $mountPoint/usr/local
 
   # Run GaleForce
-  sudo chmod u+x $mountPoint/usr/local/galeforce/bin/galeforce.sh
-  sudo $mountPoint/usr/local/galeforce/bin/galeforce.sh
+  sudo chmod u+x $mountPoint/usr/local/galeforce/bin/link.sh
+  sudo $mountPoint/usr/local/galeforce/bin/link.sh $mountPoint
 
+  find $mountPoint
   unmountPartition $rootName
 }
 

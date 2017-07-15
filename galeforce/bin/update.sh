@@ -30,7 +30,7 @@ function copyGaleforce() {
     rootMount=/tmp/rootmount
     mkdir -p $rootMount
     mount $destinationDevice $rootMount
-    cp -R /galeforce $rootMount
+    /usr/local/galeforce/bin/link.sh $rootMount
     $rootMount/galeforce/patch.sh
     umount $rootMount
 }
@@ -46,10 +46,10 @@ function copyGaleforceBruteForce() {
     if [ ! -d /tmp/roota/galeforce ]
     then
         echo "Copying galeforce to ROOT-A"
-        cp -R /galeforce /tmp/roota
+        /usr/local/galeforce/bin/link.sh /tmp/roota
     else
         echo "Copying galeforce to ROOT-B"
-        cp -R /galeforce /tmp/rootb
+        /usr/local/galeforce/bin/link.sh /tmp/rootb
     fi
 
     umount /tmp/roota
