@@ -250,9 +250,11 @@ function createPatchImage() {
   echo "Unmapping loop devices"
   sudo kpartx -d $BUILD_DIR/$BOARD.bin
 
-  # Finally copy to output
-  cp $BUILD_DIR/$BOARD.bin $OUTPUT_DIR
-  echo "Patched image has been copied to $OUTPUT_DIR"
+  # Finally compress and copy to output
+  pushd
+  cp $BUILD_DIR/$BOARD.bin.tar.gz $OUTPUT_DIR
+  popd
+  echo "Patched image has been copied to $OUTPUT_DIR/$BOARD.bin.tar.gz"
 }
 
 if ! $(echo $1 | grep -q -w -E "arkham|gale|whirlwind")
