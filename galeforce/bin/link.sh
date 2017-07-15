@@ -26,3 +26,4 @@ function link() {
 echo "May the GaleForce be with you..."
 target=$1
 link "$target"
+echo "Finished linking"

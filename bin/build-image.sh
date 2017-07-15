@@ -49,6 +49,7 @@ function downloadDevKeys() {
     pushd $DOWNLOADS_DIR
     tar -xzf $devKeysFile -C $DEV_KEYS_DIR kernel_data_key.vbprivk
     tar -xzf $devKeysFile -C $DEV_KEYS_DIR kernel.keyblock
+    popd
   fi
 }
 
@@ -197,27 +198,28 @@ function createPatchImage() {
   echo "Copying image to $BUILD_DIR dir"
   cp "$DOWNLOADS_DIR/$BOARD.bin" "$BUILD_DIR/$BOARD.bin"
 
-  echo "Mapping partitions to loop devices - and wait a little bit for them to be ready"
+  echo "Mapping partitions to loop devices"
   sudo kpartx -a "$BUILD_DIR/$BOARD.bin"
+  # Need to wait a little bit for them to be ready
   sleep 2
 
   # This is the main root (there's also ROOT-B)
   patchRoot ROOT-A
 
   # This is the recovery kernel
-#  patchKernel KERN-A
+  patchKernel KERN-A
 
   # This is the kernel that gets written to disk
-#  patchKernel KERN-B
+  patchKernel KERN-B
 
   echo "Un-mapping loop devices"
   sudo kpartx -d "$BUILD_DIR/$BOARD.bin"
 
   # Finally compress and copy to output
   pushd
-#  tar -czf "$BUILD_DIR/$BOARD.bin.tar.gz" "$BUILD_DIR/$BOARD.bin"
-#  cp "$BUILD_DIR/$BOARD.bin.tar.gz" "$OUTPUT_DIR"
+  tar -czf "$BUILD_DIR/$BOARD.bin.tar.gz" "$BUILD_DIR/$BOARD.bin"
   popd
+  cp "$BUILD_DIR/$BOARD.bin.tar.gz" "$OUTPUT_DIR"
   echo "Patched image has been copied to $OUTPUT_DIR/$BOARD.bin.tar.gz"
 }
 

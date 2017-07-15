@@ -22,7 +22,7 @@ function makePartitionWriteable() {
     /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --image /dev/mmcblk0 --partition $partitionNumber
 }
 
-function copyGaleforce() {
+function linkGaleForce() {
     partitionNumber=$1
     destinationDevice=$2
 
@@ -35,7 +35,7 @@ function copyGaleforce() {
     umount $rootMount
 }
 
-function copyGaleforceBruteForce() {
+function linkGaleForceBruteForce() {
     makePartitionWriteable 2
     makePartitionWriteable 4
 
@@ -45,10 +45,8 @@ function copyGaleforceBruteForce() {
 
     if [ ! -d /tmp/roota/galeforce ]
     then
-        echo "Copying galeforce to ROOT-A"
         /usr/local/galeforce/bin/link.sh /tmp/roota
     else
-        echo "Copying galeforce to ROOT-B"
         /usr/local/galeforce/bin/link.sh /tmp/rootb
     fi
 
@@ -62,15 +60,15 @@ nextRoot=$(getNextRoot)
 case $nextRoot in
  ROOT-A)
       echo "Copying galeforce from ROOT-B to ROOT-A"
-      copyGaleforce 2 /dev/mmcblk0p3
+      linkGaleForce 2 /dev/mmcblk0p3
       ;;
  ROOT-B)
       echo "Copying galeforce from ROOT-A to ROOT-B"
-      copyGaleforce 4 /dev/mmcblk0p5
+      linkGaleForce 4 /dev/mmcblk0p5
       ;;
  *)
       echo "Unable to determine current root. Last gasp effort."
-      copyGaleforceBruteForce
+      linkGaleForceBruteForce
       ;;
 esac
 
