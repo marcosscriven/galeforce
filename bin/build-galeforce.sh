@@ -18,12 +18,14 @@ function downloadDropbear() {
   if [ ! -f "$DOWNLOADS_DIR/dropbear" ]
   then
     echo "Downloading dropbear"
-    curl -s $DROPBEAR_URL -o $DOWNLOADS_DIR/dropbear.deb
-    pushd $DOWNLOADS_DIR/
+    mkdir -p $DOWNLOADS_DIR/extract
+    pushd $DOWNLOADS_DIR/extract
+    curl -s $DROPBEAR_URL -o dropbear.deb
     ar -x dropbear.deb
     tar -xf data.tar.xz
-    cp usr/sbin/dropbear .
+    cp usr/sbin/dropbear ../
     popd
+    rm -rf $DOWNLOADS_DIR/extract
   fi
 }
 
