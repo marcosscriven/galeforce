@@ -22,7 +22,7 @@ function makePartitionWriteable() {
     /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --image /dev/mmcblk0 --partition $partitionNumber
 }
 
-function linkGaleForce() {
+function installGaleForce() {
     partitionNumber=$1
     destinationDevice=$2
 
@@ -30,11 +30,11 @@ function linkGaleForce() {
     rootMount=/tmp/rootmount
     mkdir -p $rootMount
     mount $destinationDevice $rootMount
-    /usr/local/galeforce/bin/link.sh $rootMount
+    /usr/local/galeforce/bin/install.sh $rootMount
     umount $rootMount
 }
 
-function linkGaleForceBruteForce() {
+function installGaleForceBruteForce() {
     makePartitionWriteable 2
     makePartitionWriteable 4
 
@@ -44,9 +44,9 @@ function linkGaleForceBruteForce() {
 
     if [ ! -d /tmp/roota/galeforce ]
     then
-        /usr/local/galeforce/bin/link.sh /tmp/roota
+        /usr/local/galeforce/bin/install.sh /tmp/roota
     else
-        /usr/local/galeforce/bin/link.sh /tmp/rootb
+        /usr/local/galeforce/bin/install.sh /tmp/rootb
     fi
 
     umount /tmp/roota
@@ -59,15 +59,15 @@ nextRoot=$(getNextRoot)
 case $nextRoot in
  ROOT-A)
       echo "Copying galeforce from ROOT-B to ROOT-A"
-      linkGaleForce 2 /dev/mmcblk0p3
+      installGaleForce 2 /dev/mmcblk0p3
       ;;
  ROOT-B)
       echo "Copying galeforce from ROOT-A to ROOT-B"
-      linkGaleForce 4 /dev/mmcblk0p5
+      installGaleForce 4 /dev/mmcblk0p5
       ;;
  *)
       echo "Unable to determine current root. Last gasp effort."
-      linkGaleForceBruteForce
+      installGaleForceBruteForce
       ;;
 esac
 

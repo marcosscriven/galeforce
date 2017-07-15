@@ -138,9 +138,10 @@ function patchRoot() {
   # Dropbear fussy about permissions
   sudo chmod 0700 $mountPoint/usr/local/galeforce/bin/dropbear
 
-  # Run GaleForce
-  sudo $mountPoint/usr/local/galeforce/bin/link.sh $mountPoint
+  # Install GaleForce
+  sudo $mountPoint/usr/local/galeforce/bin/install.sh $mountPoint
 
+  find $mountPoint
   unmountPartition $rootName
 }
 
