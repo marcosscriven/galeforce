@@ -127,20 +127,11 @@ function patchRoot() {
   mountPartition $rootName
   mountPoint="$MOUNTS_DIR/$rootName"
 
-  # Copy galeforce over and prepare empty dirs
-  sudo cp -R $BUILD_DIR/galeforce $mountPoint
-  sudo mkdir -p $galeforceRoot/bin
+  # Copy galeforce over
+  sudo cp -R $BUILD_DIR/galeforce $mountPoint/usr/local
 
-  # Add busybox binary
-  sudo cp $DOWNLOADS_DIR/busybox $galeforceRoot/bin
-  sudo chmod ugo+rx $galeforceRoot/bin/busybox
-
-  # Add dropbear binary
-  sudo cp $DOWNLOADS_DIR/dropbear $galeforceRoot/bin
-  sudo chmod 700 $galeforceRoot/bin/dropbear
-
-  # Run patch
-  sudo $mountPoint/galeforce/patch.sh
+  # Run galeforce
+  sudo $mountPoint/usr/local/galeforce/bin/galeforce.sh
 
   unmountPartition $rootName
 }
@@ -209,10 +200,10 @@ function createPatchImage() {
   patchRoot ROOT-A
 
   # This is the recovery kernel
-  patchKernel KERN-A
+#  patchKernel KERN-A
 
   # This is the kernel that gets written to disk
-  patchKernel KERN-B
+#  patchKernel KERN-B
 
   echo "Un-mapping loop devices"
   sudo kpartx -d "$BUILD_DIR/$BOARD.bin"
