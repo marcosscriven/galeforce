@@ -128,12 +128,14 @@ function patchRoot() {
   mountPoint="$MOUNTS_DIR/$rootName"
 
   # Copy galeforce over
+  mkdir -p $mountPoint/usr/local
   sudo cp -R $BUILD_DIR/galeforce $mountPoint/usr/local
 
   # Run galeforce
+  sudo chmod u+x $mountPoint/usr/local/galeforce/bin/galeforce.sh
   sudo $mountPoint/usr/local/galeforce/bin/galeforce.sh
 
-  unmountPartition $rootName
+#  unmountPartition $rootName
 }
 
 function patchKernel() {
@@ -187,6 +189,7 @@ function unmountPartition() {
   mountDir="$MOUNTS_DIR/$partitionName"
   echo "Unmounting $partitionName from $mountDir"
   sudo umount $mountDir
+  sudo rm -rf $mountDir
 }
 
 function createPatchImage() {
@@ -195,6 +198,9 @@ function createPatchImage() {
 
   echo "Mapping partitions to loop devices"
   sudo kpartx -a "$BUILD_DIR/$BOARD.bin"
+
+  # Oddly sometimes loop devices not ready
+  sleep 1
 
   # This is the main root (there's also ROOT-B)
   patchRoot ROOT-A
@@ -210,8 +216,8 @@ function createPatchImage() {
 
   # Finally compress and copy to output
   pushd
-  tar -czf "$BUILD_DIR/$BOARD.bin.tar.gz" "$BUILD_DIR/$BOARD.bin"
-  cp "$BUILD_DIR/$BOARD.bin.tar.gz" "$OUTPUT_DIR"
+#  tar -czf "$BUILD_DIR/$BOARD.bin.tar.gz" "$BUILD_DIR/$BOARD.bin"
+#  cp "$BUILD_DIR/$BOARD.bin.tar.gz" "$OUTPUT_DIR"
   popd
   echo "Patched image has been copied to $OUTPUT_DIR/$BOARD.bin.tar.gz"
 }
