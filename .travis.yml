@@ -4,13 +4,13 @@ dist: trusty
 before_install:
 - sudo apt-get -qq update
 - sudo apt-get install -y git-core curl jq unzip vboot-kernel-utils binutils kpartx
-script: ./build.sh gale
+script: ./bin/build-all.sh
 deploy:
   provider: releases
   api_key:
     secure: Mbd3cJ4Y5Z08T+/KRsprnA/F84dGzng+r4OKMtX3fxQDo4urU73OCkoNZCB33cURBFdzZ+86vpzeWanU6MI2aKLJV8Cdcy3Uje/JzE8qrYHk/ILZw1avkRPtgFwItzCBC19LdG0QnVCbMd6fTPpM0WS+lqE8DEXPDz4ozlANk6Is91fwS5rApRiF7SYf27peaOgGOirAr4zq78w5FrIivZmqe01HYsDZkdoO+u51Ore/LFhELsYRKh6oXoLxkREjUDuQaI6FdXcONbyguCr9Thl2n5bP5D84Z4o1uySsp06BRkDRwfbGv7N9VCYFOrg8ZhOlPMtQjDDSZmXLT9EOM0LSUXH4V7oAih57sPRNVW0Qan3y9B0ltbkJhJJEIji/P0IaV0GS6j+UxauIbxGnNPHx0kx66nUuenS9O4buQOItPKO11ttgnWTJCSFEH0hT1HKmLh+KVu1lu4coNi/V+E61s3cckDqkX/FvhxROIxYPvaXovHu5PvvLigMHyKH6n8rbfuJHE5Ak85JO9K4lGTd2Sl6w2oXUV9/IknZpj4Au0m1tmyk0JoaeydQNQKvH5OdXWnkK6KT0rz/qn+n8xZxTtVgxqeyeHeO9xNFpB11AKlEtrwlXBdeFDcVtdwZrls5ceSSYJitDxlr2vlkIKXmOapmXCl4AfvbdZiArtTk=
   skip_cleanup: true
-  file: output/gale.bin
+  file: output/gale.bin.tar.gz
   on:
     tags: true
 

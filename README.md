@@ -13,7 +13,7 @@ GaleForce uses Travis and produces tagged binaries available from [here](https:/
 If you're on a reasonably modern Linux system, you can simply run:
 
 ```
-./build.sh gale
+./bin/build-all.sh
 ```
 
 If however you're on Windows or macOS, you'll need to use Vagrant (unfortunately
@@ -21,7 +21,7 @@ Docker for these systems don't have the necessary functions in their xhyve kerne
 
 ```
 vagrant up
-vagrant ssh -c 'cd /vagrant; ./build.sh gale'
+vagrant ssh -c 'cd /vagrant; ./bin/build-all.sh'
 ```
 
 Once completed (by either method), you can copy this image to a USB stick:
