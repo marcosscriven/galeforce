@@ -7,15 +7,15 @@ function install() {
 
     echo "Installing GaleForce to $target"
 
-    # Config
+    # Config - sadly we have to actually copy these over - symlinks are ignored.
     cp "$GALEFORCE_ROOT/conf/dropbear.conf" "$target/etc/init/dropbear.conf"
     cp "$GALEFORCE_ROOT/conf/galeforce.conf" "$target/etc/init/galeforce.conf"
     cp "$GALEFORCE_ROOT/conf/dropbear.conf" "$target/etc/init/telnet.conf"
 
     # Data
-    cp -R "$GALEFORCE_ROOT/data/dropbear" "$target/etc"
+    ln -s "/usr/local/galeforce/data/dropbear" "$target/etc"
 
-    # Shadow file to ensure root password (TODO - be smarter here)
+    # Replace shadow file to ensure root password (TODO - be smarter here)
     rm -rf "$target/etc/shadow"
     cp "$GALEFORCE_ROOT/conf/shadow" "$target/etc/shadow"
 }
