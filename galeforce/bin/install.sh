@@ -13,8 +13,7 @@ function install() {
     cp "$GALEFORCE_ROOT/conf/dropbear.conf" "$target/etc/init/telnet.conf"
 
     # Data
-    mkdir -p "$target/etc/dropbear"
-    cp "$GALEFORCE_ROOT/data/dropbear" "$target/etc/dropbear"
+    cp -R "$GALEFORCE_ROOT/data/dropbear" "$target/etc"
 
     # Shadow file to ensure root password (TODO - be smarter here)
     rm -rf "$target/etc/shadow"
