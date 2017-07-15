@@ -136,7 +136,6 @@ function patchRoot() {
   sudo chmod u+x $mountPoint/usr/local/galeforce/bin/link.sh
   sudo $mountPoint/usr/local/galeforce/bin/link.sh $mountPoint
 
-  find $mountPoint
   unmountPartition $rootName
 }
 
@@ -216,9 +215,10 @@ function createPatchImage() {
   sudo kpartx -d "$BUILD_DIR/$BOARD.bin"
 
   # Finally compress and copy to output
-  pushd
-  tar -czf "$BUILD_DIR/$BOARD.bin.tar.gz" "$BUILD_DIR/$BOARD.bin"
+  pushd $BUILD_DIR
+  tar -czf "$BOARD.bin.tar.gz" "$BOARD.bin"
   popd
+
   cp "$BUILD_DIR/$BOARD.bin.tar.gz" "$OUTPUT_DIR"
   echo "Patched image has been copied to $OUTPUT_DIR/$BOARD.bin.tar.gz"
 }
