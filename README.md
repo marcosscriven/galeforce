@@ -10,6 +10,7 @@ GaleForce uses Travis and produces tagged binaries available from [here](https:/
 
 ## How to build an image
 
+Firstly - you must ensure you've checked out a tagged version of the code. Not every commit has been tested on the router.
 If you're on a reasonably modern Linux system, you can simply run:
 
 ```
