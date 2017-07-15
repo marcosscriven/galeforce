@@ -135,6 +135,9 @@ function patchRoot() {
   # Ensure everything in bin is executable
   sudo chmod u+x $mountPoint/usr/local/galeforce/bin/*
 
+  # Dropbear fussy about permissions
+  sudo chmod 0700 $mountPoint/usr/local/galeforce/bin/dropbear
+
   # Run GaleForce
   sudo $mountPoint/usr/local/galeforce/bin/link.sh $mountPoint
 
