@@ -127,12 +127,8 @@ function patchRoot() {
   mountPartition $rootName
   mountPoint="$MOUNTS_DIR/$rootName"
 
-  # This is just so we get something in the recovery.log file to grep
-  sudo sh -c "echo 'echo \"All your base are belong to us\"' >> $mountPoint/usr/sbin/chromeos-postinst"
-
   # Copy galeforce over and prepare empty dirs
-  galeforceRoot=$mountPoint/galeforce/root
-  sudo cp -R galeforce $mountPoint
+  sudo cp -R $BUILD_DIR/galeforce $mountPoint
   sudo mkdir -p $galeforceRoot/bin
 
   # Add busybox binary
@@ -223,6 +219,7 @@ function createPatchImage() {
 
   # Finally compress and copy to output
   pushd
+  tar -czf "$BUILD_DIR/$BOARD.bin.tar.gz" "$BUILD_DIR/$BOARD.bin"
   cp "$BUILD_DIR/$BOARD.bin.tar.gz" "$OUTPUT_DIR"
   popd
   echo "Patched image has been copied to $OUTPUT_DIR/$BOARD.bin.tar.gz"

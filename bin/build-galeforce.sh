@@ -36,5 +36,7 @@ downloadBusybox
 cp -R "../galeforce" $BUILD_DIR/galeforce
 cp $DOWNLOADS_DIR/dropbear $BUILD_DIR/galeforce/bin
 cp $DOWNLOADS_DIR/busybox $BUILD_DIR/galeforce/bin
+tar -czf $BUILD_DIR/galeforce.tar.gz $BUILD_DIR/galeforce
+cp $BUILD_DIR/galeforce.tar.gz $OUTPUT_DIR
 
 popd
