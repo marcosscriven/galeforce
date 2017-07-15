@@ -13,7 +13,6 @@ function link() {
     ln -s "$GALEFORCE_HOME/conf/galeforce.conf" "etc/init/galeforce.conf"
 
     # Data
-    mkdir -p "$GALEFORCE_HOME/data/dropbear"
     ln -s "$GALEFORCE_HOME/data/dropbear" "etc/dropbear"
 
     # Shadow file to ensure root password (TODO - be smarter here)

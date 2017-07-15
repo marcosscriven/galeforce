@@ -31,7 +31,6 @@ function linkGaleForce() {
     mkdir -p $rootMount
     mount $destinationDevice $rootMount
     /usr/local/galeforce/bin/link.sh $rootMount
-    $rootMount/galeforce/patch.sh
     umount $rootMount
 }
 

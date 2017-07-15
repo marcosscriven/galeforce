@@ -132,8 +132,11 @@ function patchRoot() {
   mkdir -p $mountPoint/usr/local
   sudo cp -R $BUILD_DIR/galeforce $mountPoint/usr/local
 
-  # Run GaleForce
+  # Ensure scripts executable
   sudo chmod u+x $mountPoint/usr/local/galeforce/bin/link.sh
+  sudo chmod u+x $mountPoint/usr/local/galeforce/bin/update.sh
+
+  # Run GaleForce
   sudo $mountPoint/usr/local/galeforce/bin/link.sh $mountPoint
 
   unmountPartition $rootName
@@ -220,6 +223,7 @@ function createPatchImage() {
   popd
 
   cp "$BUILD_DIR/$BOARD.bin.tar.gz" "$OUTPUT_DIR"
+  cp "$BUILD_DIR/$BOARD.bin" "$OUTPUT_DIR"
   echo "Patched image has been copied to $OUTPUT_DIR/$BOARD.bin.tar.gz"
 }
 
