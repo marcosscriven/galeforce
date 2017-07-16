@@ -82,7 +82,7 @@ HWID_OVERRIDE=GALE DOGFOOD
 
 ## Busybox
 
-I've also put busybox on there, and all extra commands it provides are on the path:
+Busybox is also installed, and all extra commands it provides are on the path:
 
 ```
 localhost ~ # ls -altr /usr/local/bin/wc
