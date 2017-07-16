@@ -2,7 +2,11 @@
 
 [![Build Status](https://travis-ci.org/marcosscriven/galeforce.svg?branch=master)](https://travis-ci.org/marcosscriven/galeforce)
 
-GaleForce is a project to customise the Google Wifi router, including enabling ssh access.
+GaleForce is a project to customise the Google Wifi router. This enables you to:
+
+* Obtain root SSH access
+* Setup any extra features you want, such as a VPN server, or dynamic DNS client
+* Customize settings such as the gateway IP address
 
 ## Pre-built images
 
