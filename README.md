@@ -89,6 +89,8 @@ localhost ~ # ls -altr /usr/local/bin/wc
 lrwxrwxrwx 1 root root /usr/local/bin/wc -> /usr/local/galeforce/bin/busybox
 localhost ~ # wc --help
 BusyBox v1.26.2 (2017-01-11 08:43:16 UTC) multi-call binary.
+
+Usage: wc [-cmlwL] [FILE]...
 ```
 
 ## Shell
@@ -111,6 +113,9 @@ Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
 ```
+## Updates
+
+You will only need to setup GaleForce with the recovery image once. Whenever an official Google automatic update is applied, GaleForce will ensure it sets itself up in the new install. There is a separate ```galeforce.tar.gz``` artifact in the releases section that enables you to update just GaleForce itself - it's planned to also make this automatic.
 
 ## Why not just build Chromium OS from source
 
