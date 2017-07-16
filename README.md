@@ -115,7 +115,7 @@ passwd: password updated successfully
 ```
 ## Updates
 
-You will only need to setup GaleForce with the recovery image once. Whenever an official Google automatic update is applied, Galeforce will ensure it sets itself up in the new install. There is a separate ```galeforce.tar.gz``` artifact in the releases section that enables you to update just GaleForce itself - it's planned to also make this automatic.
+You will only need to setup GaleForce with the recovery image once. Whenever an official Google automatic update is applied, GaleForce will ensure it sets itself up in the new install. There is a separate ```galeforce.tar.gz``` artifact in the releases section that enables you to update just GaleForce itself - it's planned to also make this automatic.
 
 ## Why not just build Chromium OS from source
 
