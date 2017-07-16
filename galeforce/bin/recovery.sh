@@ -36,8 +36,9 @@ makeNewUsrLocal
 copyGaleforce
 linkBinaries
 
-# TODO This is quite brittle - need to dynamically find out what $installRoot is mapped to
-mount -o remount,rw /dev/loop2 /tmp/install-mount-point
+# Make the new root mount writeable
+installDevice=$(mount -v | grep "on $installRoot " | cut -d" " -f1)
+mount -o remount,rw $installDevice $installRoot
 
 $ROOT/galeforce/bin/patch.sh $NEW_USR_LOCAL/galeforce $installRoot
 
