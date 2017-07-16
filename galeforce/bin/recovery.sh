@@ -8,7 +8,7 @@ function makeNewUsrLocal() {
     mkdir -p "$TEMP_MOUNT"
     mount /dev/mmcblk0p1 "$TEMP_MOUNT"
     # Upon restart this gets mapped to /usr/local
-    mkdir -p "$NEW_USR_LOCAL"
+    mkdir -p "$NEW_USR_LOCAL/bin"
 }
 
 function copyGaleforce() {
@@ -35,6 +35,9 @@ makeNewUsrLocal
 copyGaleforce
 linkBinaries
 
+mount -v
+mount -o remount,rw /dev/loop2 /tmp/install-mount-point
+echo "Did it work?"
 mount -v
 
 $ROOT/galeforce/bin/patch-root.sh $NEW_USR_LOCAL/galeforce $installRoot
