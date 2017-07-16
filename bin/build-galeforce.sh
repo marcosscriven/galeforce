@@ -30,15 +30,16 @@ function downloadDropbear() {
 }
 
 echo "Building GaleForce."
+
 rm -rf $BUILD_DIR/galeforce
 downloadDropbear
 downloadBusybox
 cp -R "../galeforce" $BUILD_DIR/galeforce
 cp $DOWNLOADS_DIR/dropbear $BUILD_DIR/galeforce/bin
-chmod 700 $BUILD_DIR/galeforce/bin
+chmod 700 $BUILD_DIR/galeforce/bin/dropbear
 
 cp $DOWNLOADS_DIR/busybox $BUILD_DIR/galeforce/bin
-chmod u+x $BUILD_DIR/galeforce/bin
+chmod u+x $BUILD_DIR/galeforce/bin/busybox
 
 pushd $BUILD_DIR
 tar -czf galeforce.tar.gz galeforce
