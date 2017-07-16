@@ -23,9 +23,9 @@ function linkBinaries() {
     mkdir -p "$NEW_USR_LOCAL/bin"
     ln -s "/usr/local/galeforce/bin/dropbear" "$NEW_USR_LOCAL/bin"
 
-    # TODO Link busybox dynamically
-    ln -s "/usr/local/galeforce/bin/busybox" "$NEW_USR_LOCAL/bin/wget"
-    ln -s "/usr/local/galeforce/bin/busybox" "$NEW_USR_LOCAL/bin/vi"
+    # Link everything in busybox
+    "$NEW_USR_LOCAL/galeforce/bin/busybox" --list | \
+        while read applet; do ln -s "/usr/local/galeforce/bin/busybox" "$NEW_USR_LOCAL/bin/$applet"; done;
 }
 
 installRoot=$1
