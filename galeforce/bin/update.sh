@@ -22,6 +22,11 @@ function makePartitionWriteable() {
     /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --image /dev/mmcblk0 --partition $partitionNumber
 }
 
+function writePatch() {
+    newRoot=$1
+    /usr/local/galeforce/bin/patch-root.sh "/usr/local/galeforce" $newRoot
+}
+
 function installGaleForce() {
     partitionNumber=$1
     destinationDevice=$2
@@ -30,7 +35,7 @@ function installGaleForce() {
     rootMount=/tmp/rootmount
     mkdir -p $rootMount
     mount $destinationDevice $rootMount
-    /galeforce/bin/install.sh $rootMount
+    writePatch $rootMount
     umount $rootMount
 }
 
@@ -44,9 +49,9 @@ function installGaleForceBruteForce() {
 
     if [ ! -d /tmp/roota/galeforce ]
     then
-        /galeforce/bin/install.sh /tmp/roota
+        writePatch /tmp/roota
     else
-        /galeforce/bin/install.sh /tmp/rootb
+        writePatch /tmp/rootb
     fi
 
     umount /tmp/roota

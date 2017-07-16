@@ -6,7 +6,7 @@ NEW_ROOT=$2
 function patch() {
     echo "Patching new root $NEW_ROOT from $GALEFORCE_DIR"
 
-    # Data
+    # Symlinks must be absolute as we may be installing from different locations
     ln -s "/usr/local/galeforce/data/dropbear" "$NEW_ROOT/etc"
 
     # Replace shadow file to ensure root password (TODO - be smarter here)
