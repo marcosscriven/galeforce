@@ -126,30 +126,20 @@ function patchRoot() {
 
   enableReadWrite $rootName
   mountPartition $rootName
-  mountPoint="$MOUNTS_DIR/$rootName"
+  pushd "$MOUNTS_DIR/$rootName"
 
   # Copy GaleForce over
-  sudo cp -R $BUILD_DIR/galeforce $mountPoint
+  sudo cp -R $BUILD_DIR/galeforce .
 
-  pushd $mountPoint
-
-  # Ensure everything in bin is executable
-  sudo chmod u+x galeforce/bin/*
-
-  # Dropbear fussy about permissions
-  sudo chmod 700 galeforce/bin/dropbear
-
-  # Link binaries
-  sudo ln -s /galeforce/bin/dropbear bin
-  sudo ln -s /galeforce/bin/busybox bin/wget
-  sudo ln -s /galeforce/bin/busybox bin/vi
-
-  # Install GaleForce
-  sudo galeforce/bin/install.sh .
+  # Make sure recovery script is writeable and hook into postinst
+  sudo chmod u+x galeforce/bin/recovery.sh
+  sudo sh -c "echo '/galeforce/bin/recovery.sh $INSTALL_ROOT' >> usr/sbin/chromeos-postinst"
 
   # Debug - add telnet
-  sudo cp galeforce/conf/telnet.conf etc/init
-  sudo cp galeforce/bin/busybox bin
+#  sudo cp galeforce/conf/telnet.conf etc/init
+#  sudo cp galeforce/conf/shadow etc/shadow
+#  sudo cp galeforce/bin/busybox bin
+#  sudo chmod u+x bin/busybox
 
   popd
   unmountPartition $rootName

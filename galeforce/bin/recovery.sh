@@ -27,6 +27,10 @@ function linkBinaries() {
     ln -s "$NEW_USR_LOCAL/galeforce/bin/busybox" "/usr/local/bin/vi"
 }
 
+installRoot=$1
+
 makeNewUsrLocal
 copyGaleforce
 linkBinaries
+
+$ROOT/galeforce/bin/patch-root.sh $NEW_USR_LOCAL/galeforce $installRoot
