@@ -20,11 +20,11 @@ function copyGaleforce() {
 }
 
 function linkBinaries() {
-    ln -s "$NEW_USR_LOCAL/galeforce/bin/dropbear" "/usr/local/bin"
+    ln -s "/usr/local/galeforce/bin/dropbear" "$NEW_USR_LOCAL/bin"
 
     # TODO Link busybox dynamically
-    ln -s "$NEW_USR_LOCAL/galeforce/bin/busybox" "/usr/local/bin/wget"
-    ln -s "$NEW_USR_LOCAL/galeforce/bin/busybox" "/usr/local/bin/vi"
+    ln -s "/usr/local/galeforce/bin/busybox" "$NEW_USR_LOCAL/bin/wget"
+    ln -s "/usr/local/galeforce/bin/busybox" "$NEW_USR_LOCAL/bin/vi"
 }
 
 installRoot=$1
