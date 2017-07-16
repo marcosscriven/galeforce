@@ -82,11 +82,13 @@ HWID_OVERRIDE=GALE DOGFOOD
 
 ## Busybox
 
-I've also put busybox on there:
+I've also put busybox on there, and all extra commands it provides are on the path:
 
 ```
-localhost ~ # ln -s /bin/busybox /bin/vi
-localhost ~ # vi
+localhost ~ # ls -altr /usr/local/bin/wc
+lrwxrwxrwx 1 root root /usr/local/bin/wc -> /usr/local/galeforce/bin/busybox
+localhost ~ # wc --help
+BusyBox v1.26.2 (2017-01-11 08:43:16 UTC) multi-call binary.
 ```
 
 ## Shell
