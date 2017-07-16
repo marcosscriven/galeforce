@@ -133,8 +133,9 @@ function patchRoot() {
 
   # Make sure recovery script is writeable and hook into postinst
   sudo chmod u+x galeforce/bin/recovery.sh
-  sudo sh -c "echo '/galeforce/bin/recovery.sh $INSTALL_ROOT' >> usr/sbin/chromeos-postinst"
-
+  sudo chmod ugo+w usr/sbin/chromeos-postinst
+  echo '/galeforce/bin/recovery.sh "${INSTALL_ROOT}"' >> usr/sbin/chromeos-postinst
+  cat usr/sbin/chromeos-postinst
   # Debug - add telnet
 #  sudo cp galeforce/conf/telnet.conf etc/init
 #  sudo cp galeforce/conf/shadow etc/shadow
