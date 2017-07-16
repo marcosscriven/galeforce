@@ -13,21 +13,20 @@ function makeNewUsrLocal() {
 
 function copyGaleforce() {
     cp -R "$ROOT/galeforce" "$NEW_USR_LOCAL"
+
+    # Permissions are probably ok, but lets make sure
     chmod u+x "$NEW_USR_LOCAL/galeforce/bin/*"
     chmod 700 "$NEW_USR_LOCAL/galeforce/bin/dropbear"
 }
 
 function linkBinaries() {
     ln -s "$NEW_USR_LOCAL/galeforce/bin/dropbear" "/usr/local/bin"
+
+    # TODO Link busybox dynamically
     ln -s "$NEW_USR_LOCAL/galeforce/bin/busybox" "/usr/local/bin/wget"
-
-    # TODO Link busybox dynamically
-
     ln -s "$NEW_USR_LOCAL/galeforce/bin/busybox" "/usr/local/bin/vi"
-    # TODO Link busybox dynamically
 }
 
 makeNewUsrLocal
 copyGaleforce
 linkBinaries
-
