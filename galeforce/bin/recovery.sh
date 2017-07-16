@@ -15,7 +15,7 @@ function copyGaleforce() {
     cp -R "$ROOT/galeforce" "$NEW_USR_LOCAL"
 
     # Permissions are probably ok, but lets make sure
-    chmod u+x "$NEW_USR_LOCAL/galeforce/bin/*"
+    chmod u+x "$NEW_USR_LOCAL/galeforce/bin/busybox"
     chmod 700 "$NEW_USR_LOCAL/galeforce/bin/dropbear"
 }
 
@@ -29,8 +29,15 @@ function linkBinaries() {
 
 installRoot=$1
 
+echo "Setting up GaleForce in: $NEW_USR_LOCAL and installing into: $installRoot"
+
 makeNewUsrLocal
 copyGaleforce
 linkBinaries
 
+mount -v
+
 $ROOT/galeforce/bin/patch-root.sh $NEW_USR_LOCAL/galeforce $installRoot
+
+echo "Contents of new usr/local:"
+ls -altrR $NEW_USR_LOCAL
