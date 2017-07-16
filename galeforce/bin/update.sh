@@ -24,7 +24,7 @@ function makePartitionWriteable() {
 
 function writePatch() {
     newRoot=$1
-    /usr/local/galeforce/bin/patch-root.sh "/usr/local/galeforce" $newRoot
+    /usr/local/galeforce/bin/patch.sh "/usr/local/galeforce" $newRoot
 }
 
 function installGaleForce() {

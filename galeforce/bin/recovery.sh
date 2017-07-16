@@ -8,7 +8,7 @@ function makeNewUsrLocal() {
     mkdir -p "$TEMP_MOUNT"
     mount /dev/mmcblk0p1 "$TEMP_MOUNT"
     # Upon restart this gets mapped to /usr/local
-    mkdir -p "$NEW_USR_LOCAL/bin"
+    mkdir -p "$NEW_USR_LOCAL"
 }
 
 function copyGaleforce() {
@@ -20,6 +20,7 @@ function copyGaleforce() {
 }
 
 function linkBinaries() {
+    mkdir -p "$NEW_USR_LOCAL/bin"
     ln -s "/usr/local/galeforce/bin/dropbear" "$NEW_USR_LOCAL/bin"
 
     # TODO Link busybox dynamically
@@ -35,12 +36,11 @@ makeNewUsrLocal
 copyGaleforce
 linkBinaries
 
-mount -v
+# TODO This is quite brittle - need to dynamically find out what $installRoot is mapped to
 mount -o remount,rw /dev/loop2 /tmp/install-mount-point
-echo "Did it work?"
-mount -v
 
-$ROOT/galeforce/bin/patch-root.sh $NEW_USR_LOCAL/galeforce $installRoot
+$ROOT/galeforce/bin/patch.sh $NEW_USR_LOCAL/galeforce $installRoot
 
+# Handy for debug in the recovery.log on USB stick
 echo "Contents of new usr/local:"
 ls -altrR $NEW_USR_LOCAL
