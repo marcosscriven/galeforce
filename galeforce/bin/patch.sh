@@ -9,9 +9,9 @@ function patch() {
     # Symlinks must be absolute as we may be installing from different locations
     ln -s "/usr/local/galeforce/data/dropbear" "$NEW_ROOT/etc"
 
-    # Replace shadow file to ensure root password (TODO - be smarter here)
+    # Link shadow file to ensure root password is maintained between updates
     rm -rf "$NEW_ROOT/etc/shadow"
-    cp "$GALEFORCE_DIR/conf/shadow" "$NEW_ROOT/etc/shadow"
+    ln -s "/usr/local/galeforce/data/shadow" "$NEW_ROOT/etc"
 
     # Config - sadly we have to actually copy these over - symlinks are ignored.
     cp "$GALEFORCE_DIR/conf/dropbear.conf" "$NEW_ROOT/etc/init/dropbear.conf"
