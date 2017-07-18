@@ -47,7 +47,7 @@ function installGaleForceBruteForce() {
     mount /dev/mmcblk0p3 /tmp/roota
     mount /dev/mmcblk0p5 /tmp/rootb
 
-    if [ ! -d /tmp/roota/galeforce ]
+    if [ ! -d /tmp/roota/usr/local/galeforce ]
     then
         writePatch /tmp/roota
     else
