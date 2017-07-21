@@ -147,14 +147,14 @@ function patchRoot() {
 }
 
 function patchKernel() {
-  partitionName=$1
 
   img=$BUILD_DIR/$BOARD.bin
-  loopDevice=$(getLoopDeviceForPartition $partitionName)
+  loopDeviceKernA=$(getLoopDeviceForPartition "KERN-A")
+  loopDeviceKernB=$(getLoopDeviceForPartition "KERN-B")
 
-  echo "Extracting kernal partition $partitionName"
+  echo "Extracting kernel B"
   kernelFile="$BUILD_DIR/kernel"
-  sudo dd if=$loopDevice of=$kernelFile > /dev/null 2>&1
+  sudo dd if=$loopDeviceKernB of=$kernelFile > /dev/null 2>&1
 
   kernelConfig=$(sudo vbutil_kernel --verify $kernelFile --verbose | tail -1)
   echo "Current config: $kernelConfig"
@@ -174,7 +174,8 @@ function patchKernel() {
 
   vbutil_kernel --verify $repackedKernelFile --verbose
 
-  sudo dd if=$repackedKernelFile of=$loopDevice > /dev/null 2>&1
+  echo "Copying patched KERN-B to KERN-A"
+  sudo dd if=$repackedKernelFile of=$loopDeviceKernA > /dev/null 2>&1
 
   # Cleanup
   sudo rm $kernelFile $repackedKernelFile $patchedKernelConfigFile
@@ -212,11 +213,8 @@ function createPatchImage() {
   # This is the main root (there's also ROOT-B)
   patchRoot ROOT-A
 
-  # This is the recovery kernel
-  patchKernel KERN-A
-
-  # This is the kernel that gets written to disk
-  patchKernel KERN-B
+  # Copy KERN-B to KERN-A, and disable verity
+  patchKernel
 
   echo "Un-mapping loop devices"
   sudo kpartx -d "$BUILD_DIR/$BOARD.bin"
