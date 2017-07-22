@@ -118,6 +118,7 @@ function remove_verification() {
     newConfig=$(sed 's/ dm_verity.dev_wait=1 / dm_verity.dev_wait=0 /' <<< $newConfig)
     newConfig=$(sed 's/ payload=PARTUUID=%U\/PARTNROFF=1 / payload=ROOT_DEV /' <<< $newConfig)
     newConfig=$(sed 's/ hashtree=PARTUUID=%U\/PARTNROFF=1 / hashtree=HASH_DEV /' <<< $newConfig)
+    newConfig=$(sed 's/console= /console=\/dev\/ttyUSB0 /' <<< $newConfig)
     echo "$newConfig"
 }
 
