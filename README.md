@@ -2,7 +2,7 @@
 
 # THIS PROJECT IS DISCONTINUED 
 
-Unfortunately, according to @brettp, Google has [started signing drivers](https://github.com/marcosscriven/galeforce/pull/47#issuecomment-6603146980. This means custom firmware cannot work. 
+Unfortunately, according to @brettp, Google has [started signing drivers](https://github.com/marcosscriven/galeforce/pull/47#issuecomment-6603146980). This means custom firmware cannot work. 
 
 Unless someone has a contact within Google to petition against this, I very much doubt this decision will change. I can only suggest petitioning your local political representatives to change the law with respect to software on consumer devices.
 
