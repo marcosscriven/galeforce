@@ -1,11 +1,5 @@
 # GaleForce
 
-# THIS PROJECT IS DISCONTINUED 
-
-Unfortunately, according to @brettp, Google has [started signing drivers](https://github.com/marcosscriven/galeforce/pull/47#issuecomment-660314698). This means custom firmware cannot work. 
-
-Unless someone has a contact within Google to petition against this, I very much doubt this decision will change. I can only suggest petitioning your local political representatives to change the law with respect to software on consumer devices.
-
 [![Build Status](https://travis-ci.org/marcosscriven/galeforce.svg?branch=master)](https://travis-ci.org/marcosscriven/galeforce)
 
 GaleForce is a project to customise the Google Wifi router. This enables you to:
