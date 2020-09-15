@@ -2,4 +2,6 @@
 
 echo "Building all artifacts."
 $(dirname "$0")/build-galeforce.sh
-$(dirname "$0")/build-image.sh
+if [ $? -eq 0 ]; then
+    $(dirname "$0")/build-image.sh
+fi

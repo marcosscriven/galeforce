@@ -138,7 +138,7 @@ function patchRoot() {
   cat usr/sbin/chromeos-postinst
   # Debug - add telnet
 #  sudo cp galeforce/conf/telnet.conf etc/init
-#  sudo cp galeforce/conf/shadow etc/shadow
+#  sudo cp galeforce/data/shadow etc/shadow
 #  sudo cp galeforce/bin/busybox bin
 #  sudo chmod u+x bin/busybox
 
